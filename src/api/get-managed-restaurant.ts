@@ -1,5 +1,5 @@
 import { api } from "@/lib/axios";
-interface GetManagerRestarauntResponse {
+export interface GetManagerRestarauntResponse {
   id: string;
     name: string;
     createdAt: Date | null;
