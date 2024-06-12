@@ -1,8 +1,10 @@
 import { Link, LinkProps, useLocation } from "react-router-dom";
 
 export type NavLinkProps = LinkProps
+
 export function NavLink(props: NavLinkProps) {
   const { pathname } = useLocation()
+  // destacar a pagina atual quando a mesma do link
   return (
     <Link 
       data-current={pathname === props.to}

@@ -30,6 +30,5 @@ export async function getOrders({ pageIndex, orderId, customerName, status }: Ge
       status
     },
   })
-
   return response.data
 }

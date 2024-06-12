@@ -8,6 +8,7 @@ import { DateRange } from "react-day-picker";
 import { subDays } from "date-fns";
 import { ResponsiveContainer, LineChart, XAxis, YAxis, CartesianGrid, Line, Tooltip } from 'recharts'
 import colors from 'tailwindcss/colors'
+import { Loader2 } from "lucide-react";
 
 export function RevenueChart() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
@@ -48,10 +49,10 @@ export function RevenueChart() {
 
       </CardHeader>
       <CardContent>
-        {chartData && (
+        {dailyRevenueInPeriod ? (
              <ResponsiveContainer width="100%" height={240}>
              <LineChart data={chartData} style={{ fontSize: 12}}>
-    /           <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16}/>
+              <XAxis dataKey="date" tickLine={false} axisLine={false} dy={16}/>
                <YAxis 
                  stroke="#888"
                  axisLine={false}
@@ -69,6 +70,10 @@ export function RevenueChart() {
              </LineChart>
    
            </ResponsiveContainer>
+        ) : (
+          <div className="flex h-[240xp] w-full items-center justify-center">
+            <Loader2 className="h-8 w-8 text-muted-foreground animate-spin"/>
+          </div>
         )}
       </CardContent>
     </Card>
